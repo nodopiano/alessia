@@ -1,25 +1,11 @@
 <?php
 
-namespace App\Menu;
-
-use App\Menu\Core\Menu;
-use App\Menu\Core\MenuItem;
+namespace Nodopiano\Alessia\Menu;
 
 class MenuList implements \JsonSerializable
 {
-    public static function make()
+    public static function make($items)
     {
-        $items = [
-            'sidebar' => Menu::items([
-                MenuItem::make('bookings')->label(__('Prenotazioni'))->url('/bookings')->icon('timetable'),
-                MenuItem::make('owners')->label(__('Proprietari'))->url('/owners')->icon('avatar'),
-                MenuItem::make('boats')->label(__('Imbarcazioni'))->url('/boats')->icon('sailboat'),
-                MenuItem::make('reports')->label(__('Report'))->url('/reports')->icon('bars'),
-                MenuItem::make('validate')->label(__('Validazione'))->url('/validations')->icon('validate')->gate(auth()->user()->can('validate_bookings')),
-                MenuItem::make('settings')->label(__('Impostazioni'))->url('/settings')->icon('controls'),
-            ]),
-            'profile' => []
-        ];
         return new static($items);
     }
 

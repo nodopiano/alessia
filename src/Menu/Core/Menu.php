@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Menu\Core;
+namespace Nodopiano\Alessia\Menu\Core;
 
 class Menu implements \JsonSerializable
 {
