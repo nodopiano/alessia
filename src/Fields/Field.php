@@ -11,6 +11,7 @@ abstract class Field implements JsonSerializable
     protected $sortable = false;
     protected $readonly = false;
     protected $required = false;
+    protected $oneline = false;
     protected $label = false;
     protected $placeholder = false;
     protected $field = [];
@@ -36,6 +37,12 @@ abstract class Field implements JsonSerializable
     public function required()
     {
         $this->required = true;
+        return $this;
+    }
+
+    public function oneline()
+    {
+        $this->oneline = true;
         return $this;
     }
 
@@ -72,6 +79,7 @@ abstract class Field implements JsonSerializable
             'type' => $this->type,
             'sortable' => $this->sortable,
             'label' => $this->label,
+            'oneline' => $this->oneline,
             'readonly' => $this->readonly,
             'required' => $this->required,
             'traverse' => $this->name,
